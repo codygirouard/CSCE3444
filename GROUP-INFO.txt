@@ -1,4 +1,7 @@
 Group name: Late Leftovers
+Repository Name: anonagonal
 -Cody Girouard
 -Michael Elem
 -Randal Carr
+Email: RandalCarr@my.unt.edu
+
