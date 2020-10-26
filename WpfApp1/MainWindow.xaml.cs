@@ -135,5 +135,47 @@ namespace WpfApp1
                 this.Password.Focus();
             }
         }
+        private void Forward_Click(object sender, RoutedEventArgs e)
+        {
+            this.Inventory.Visibility = Visibility.Hidden;
+            this.Inventory2.Visibility = Visibility.Visible;
+        }
+        private void Back1_Click(object sender, RoutedEventArgs e)
+        {
+            this.Inventory2.Visibility = Visibility.Hidden;
+            this.Inventory.Visibility = Visibility.Visible;
+        }
+        private void LeaveScrewdriver_Click(object sender, RoutedEventArgs e) // goes back to inventory page from Screwdrive Info page
+        {
+            this.ScrewdriverInfo.Visibility = Visibility.Hidden;
+            this.Inventory.Visibility = Visibility.Visible;
+            
+        }
+
+        private void ScrewdriverInfo_Click(object sender, RoutedEventArgs e) // goes to screwdriver Information
+        {
+            this.Inventory.Visibility = Visibility.Hidden;
+            this.ScrewdriverInfo.Visibility = Visibility.Visible;
+        }
+
+        private void PurchaseSD_Click(object sender, RoutedEventArgs e) // purchase stock button
+        {
+
+        }
+
+        private void Item_Description_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+           
+        }
     }
 }
