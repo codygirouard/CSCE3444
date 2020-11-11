@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,7 @@ namespace WpfApp1
         {
             InitializeComponent();
             admin = false;
+           
         }
 
         private void CkInven_Click(object sender, RoutedEventArgs e)
@@ -154,8 +156,14 @@ namespace WpfApp1
 
         private void ScrewdriverInfo_Click(object sender, RoutedEventArgs e) // goes to screwdriver Information
         {
+          
             this.Inventory.Visibility = Visibility.Hidden;
             this.ScrewdriverInfo.Visibility = Visibility.Visible;
+
+            DataAccess db = new DataAccess();
+            List<string> description = db.GetInfo("Hammer"); // getting the data from the database
+            string combine = string.Join("", description); //converting the list of the description to one string
+            sdInfo.Text = combine;                          // apply new data to database
         }
 
         private void PurchaseSD_Click(object sender, RoutedEventArgs e) // purchase stock button
