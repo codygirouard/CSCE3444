@@ -58,7 +58,7 @@
                         <TextBlock Text="Screw Driver" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="Button2" Margin="5" Grid.Column="1" Grid.Row="0" Background="#FFFFF9B6" >
+                <Button x:Name="Button2" Margin="5" Grid.Column="1" Grid.Row="0" Background="#FFFFF9B6" Click="HammerInfo_Click" >
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="30"/>
@@ -69,7 +69,7 @@
                         <TextBlock x:Name="___TextBlock___Hammer_" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"><Run Text="Hammer"/><LineBreak/><Run/></TextBlock>
                     </StackPanel>
                 </Button>
-                <Button x:Name="Button3" Margin="5" Grid.Column="0" Grid.Row="1" Background="#FFFFF9B6" >
+                <Button x:Name="Button3" Margin="5" Grid.Column="0" Grid.Row="1" Background="#FFFFF9B6" Click="PliersInfo_Click" >
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="30"/>
@@ -80,7 +80,7 @@
                         <TextBlock Text="Pliers" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="Button4" Margin="5" Grid.Column="1" Grid.Row="1" Background="#FFFFF9B6" >
+                <Button x:Name="Button4" Margin="5" Grid.Column="1" Grid.Row="1" Background="#FFFFF9B6" Click="WrenchInfo_Click" >
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="30"/>
@@ -230,33 +230,19 @@
                 </Button.Foreground>
             </Button>
         </Grid>
-        <Grid x:Name="ScrewdriverInfo" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Visibility="Hidden">
+        <Grid x:Name="ToolsInfo" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Visibility="Hidden">
             <Grid HorizontalAlignment="Left" Height="446" Margin="0,-24,-695,-322" VerticalAlignment="Top" Width="795" Background="#FF363232">
                 <Image Source="Pictures/screwdriver.png" Margin="73,128,523,222"/>
             </Grid>
-            <TextBox x:Name="Screwdriver_Price" HorizontalAlignment="Left" Height="81" Margin="411,109,-536,-90" TextWrapping="Wrap" Text="Screwdriver&#xA;$19.99&#xA;Stock: 4" VerticalAlignment="Top" Width="225" Background="{x:Null}" TextChanged="TextBox_TextChanged_1" FontSize="20" Foreground="White" TextDecorations="{x:Null}"/>
+            <TextBox x:Name="Name" HorizontalAlignment="Left" Height="34" Margin="411,104,-526,-38" TextWrapping="Wrap" Text="Screwdriver" VerticalAlignment="Top" Width="215" Background="{x:Null}" TextChanged="TextBox_TextChanged_1" FontSize="20" Foreground="White" TextDecorations="{x:Null}" BorderBrush="{x:Null}"/>
+            <TextBox x:Name="Price" HorizontalAlignment="Left" Height="34" Margin="411,138,-526,-72" TextWrapping="Wrap" Text="$19.99" VerticalAlignment="Top" Width="215" Background="{x:Null}" TextChanged="TextBox_TextChanged_1" FontSize="20" Foreground="White" TextDecorations="{x:Null}" BorderBrush="{x:Null}"/>
+            <TextBox x:Name="StockText" HorizontalAlignment="Left" Height="34" Margin="411,171,-372,-105" TextWrapping="Wrap" Text="Stock:" VerticalAlignment="Top" Width="61" Background="{x:Null}" TextChanged="TextBox_TextChanged_1" FontSize="20" Foreground="White" TextDecorations="{x:Null}" BorderBrush="{x:Null}"/>
+            <TextBox x:Name="StockNum" HorizontalAlignment="Left" Height="34" Margin="472,171,-423,-105" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="51" Background="{x:Null}" TextChanged="TextBox_TextChanged_1" FontSize="20" Foreground="White" TextDecorations="{x:Null}" BorderBrush="{x:Null}"/>
+            <TextBlock x:Name="DescriptionBox" HorizontalAlignment="Left" Margin="89,205,-569,-283" TextWrapping="Wrap" Text="A screwdriver is a tool, manual or powered, used for screwing and unscrewing screws. A typical simple screwdriver has a handle and a shaft, ending with a tip the user puts into the screw head before turning the handle" VerticalAlignment="Top" Height="178" Width="580" Foreground="White" FontSize="24"/>
             <Button x:Name="Purchase" HorizontalAlignment="Left" Height="52" Margin="278,129,-275,-81" VerticalAlignment="Top" Width="97" Background="#FFBDDEA7" Click="PurchaseSD_Click" BorderBrush="White" Padding="1">
                 <TextBlock TextWrapping="Wrap" Text="Purchase" Foreground="Black" FontSize="19" FontWeight="Bold"/>
             </Button>
-            <TextBlock x:Name="sdInfo" HorizontalAlignment="Left" Margin="89,205,-569,-283" TextWrapping="Wrap" Text="A screwdriver is a tool, manual or powered, used for screwing and unscrewing screws. A typical simple screwdriver has a handle and a shaft, ending with a tip the user puts into the screw head before turning the handle" VerticalAlignment="Top" Height="178" Width="580" Foreground="White" FontSize="24"/>
             <Button x:Name="LeaveScrewDriverInfoPage" Margin="10,0,-43,42" Grid.Column="0" Background="#FFBDDEA7" Content="← " FontSize="40" FontWeight="Bold" VerticalAlignment="Center" Height="58" Click="LeaveScrewdriver_Click">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-        </Grid>
-        <Grid x:Name="ScrewdriverInfo_Copy" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Visibility="Hidden">
-            <Grid HorizontalAlignment="Left" Height="446" Margin="0,-24,-695,-322" VerticalAlignment="Top" Width="795" Background="#FF363232">
-                <Image Source="Pictures/screwdriver.png" Margin="73,128,523,222"/>
-            </Grid>
-            <TextBox x:Name="Screwdriver_Price1" HorizontalAlignment="Left" Height="81" Margin="411,109,-536,-90" TextWrapping="Wrap" Text="Screwdriver&#xA;$19.99&#xA;Stock: 4" VerticalAlignment="Top" Width="225" Background="{x:Null}" TextChanged="TextBox_TextChanged_1" FontSize="20" Foreground="White" TextDecorations="{x:Null}"/>
-            <Button x:Name="Purchase1" HorizontalAlignment="Left" Height="52" Margin="278,129,-275,-81" VerticalAlignment="Top" Width="97" Background="#FFBDDEA7" Click="PurchaseSD_Click" BorderBrush="White" Padding="1">
-                <TextBlock TextWrapping="Wrap" Text="Purchase" Foreground="Black" FontSize="19" FontWeight="Bold"/>
-            </Button>
-            <TextBlock x:Name="test" HorizontalAlignment="Left" Margin="89,205,-569,-283" TextWrapping="Wrap" Text="A screwdriver is a tool, manual or powered, used for screwing and unscrewing screws. A typical simple screwdriver has a handle and a shaft, ending with a tip the user puts into the screw head before turning the handle" VerticalAlignment="Top" Height="178" Width="580" Foreground="White" FontSize="24"/>
-            <Button x:Name="LeaveScrewDriverInfoPage1" Margin="10,0,-43,42" Grid.Column="0" Background="#FFBDDEA7" Content="← " FontSize="40" FontWeight="Bold" VerticalAlignment="Center" Height="58" Click="LeaveScrewdriver_Click">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="5"/>

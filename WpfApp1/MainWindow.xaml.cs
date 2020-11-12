@@ -30,7 +30,19 @@ namespace WpfApp1
         {
             InitializeComponent();
             admin = false;
-           
+            Tool tempTool = new Tool();
+        }
+        public void UpdateToolInfoPage(string nameOfTool)  // function to access database and update ToolsInfo page
+        {
+            // getting the data from the database
+            DataAccess db = new DataAccess();
+            Tool obj = db.GetInfo(nameOfTool);
+
+            // Update textboxes
+            DescriptionBox.Text = obj.Description;          
+            Name.Text = obj.Name;
+            Price.Text = "$" + obj.Price.ToString();
+            StockNum.Text = obj.Quantity.ToString();
         }
 
         private void CkInven_Click(object sender, RoutedEventArgs e)
@@ -149,22 +161,36 @@ namespace WpfApp1
         }
         private void LeaveScrewdriver_Click(object sender, RoutedEventArgs e) // goes back to inventory page from Screwdrive Info page
         {
-            this.ScrewdriverInfo.Visibility = Visibility.Hidden;
+            this.ToolsInfo.Visibility = Visibility.Hidden;
             this.Inventory.Visibility = Visibility.Visible;
             
         }
 
         private void ScrewdriverInfo_Click(object sender, RoutedEventArgs e) // goes to screwdriver Information
         {
-          
             this.Inventory.Visibility = Visibility.Hidden;
-            this.ScrewdriverInfo.Visibility = Visibility.Visible;
-
-            DataAccess db = new DataAccess();
-            List<string> description = db.GetInfo("Hammer"); // getting the data from the database
-            string combine = string.Join("", description); //converting the list of the description to one string
-            sdInfo.Text = combine;                          // apply new data to database
+            this.ToolsInfo.Visibility = Visibility.Visible;
+            UpdateToolInfoPage("Screwdriver");    
         }
+        private void HammerInfo_Click(object sender, RoutedEventArgs e)
+        {
+            this.Inventory.Visibility = Visibility.Hidden;
+            this.ToolsInfo.Visibility = Visibility.Visible;
+            UpdateToolInfoPage("Hammer");
+        }
+        private void PliersInfo_Click(object sender, RoutedEventArgs e)
+        {
+            this.Inventory.Visibility = Visibility.Hidden;
+            this.ToolsInfo.Visibility = Visibility.Visible;
+            UpdateToolInfoPage("Pliers");
+        }
+        private void WrenchInfo_Click(object sender, RoutedEventArgs e)
+        {
+            this.Inventory.Visibility = Visibility.Hidden;
+            this.ToolsInfo.Visibility = Visibility.Visible;
+            UpdateToolInfoPage("Wrench");
+        }
+
 
         private void PurchaseSD_Click(object sender, RoutedEventArgs e) // purchase stock button
         {
