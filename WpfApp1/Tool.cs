@@ -7,12 +7,19 @@ using System.Windows.Interop;
 
 namespace WpfApp1
 {
-    class Tool
+    public class Tool
     {
         public string Name { get; set; }
         public string Description { get; set; }
         public float Price { get; set; }
         public int Quantity { get; set; }
        
+        public Tool()
+        {
+            Name = "";
+            Description = "";
+            Price = 0;
+            Quantity = 0;
+        }
     }
 }
