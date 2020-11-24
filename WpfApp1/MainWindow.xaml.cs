@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace WpfApp1
 {
     /// <summary>
@@ -21,6 +22,12 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<Tool> inventory;
+        public void LoadTools()
+        {
+            DataAccess tempClass = new DataAccess();
+            this.inventory = tempClass.GetTools();
+        }
         public bool admin
         {
             get; private set;
@@ -30,20 +37,29 @@ namespace WpfApp1
         {
             InitializeComponent();
             admin = false;
-            Tool tempTool = new Tool();
+            LoadTools();
         }
-        public void UpdateToolInfoPage(string nameOfTool)  // function to access database and update ToolsInfo page
+        public Tool FindTool(string name)
         {
-            // getting the data from the database
-            DataAccess db = new DataAccess();
-            Tool obj = db.GetInfo(nameOfTool);
-
-            // Update textboxes
-            DescriptionBox.Text = obj.Description;          
-            Name.Text = obj.Name;
-            Price.Text = "$" + obj.Price.ToString();
-            StockNum.Text = obj.Quantity.ToString();
+            Tool temp = new Tool();
+            for(int i = 0; i <= this.inventory.Count; i++)
+            {
+                if(this.inventory.ElementAt(i).Name == name)
+                {
+                    temp = this.inventory.ElementAt(i);
+                    break;
+                }        
+            }
+            return temp;
         }
+        public void UpdateToolInfoPage(Tool x)
+        {
+            DescriptionBox.Text = x.Description;
+            Name.Text = x.Name;
+            Price.Text = x.Price.ToString();
+            StockNum.Text = x.Quantity.ToString();
+        }
+
 
         private void CkInven_Click(object sender, RoutedEventArgs e)
         {
@@ -159,36 +175,35 @@ namespace WpfApp1
             this.Inventory2.Visibility = Visibility.Hidden;
             this.Inventory.Visibility = Visibility.Visible;
         }
-        private void LeaveScrewdriver_Click(object sender, RoutedEventArgs e) // goes back to inventory page from Screwdrive Info page
+        private void LeaveToolInfoPage_Click(object sender, RoutedEventArgs e) // goes back to inventory page from Screwdrive Info page
         {
             this.ToolsInfo.Visibility = Visibility.Hidden;
             this.Inventory.Visibility = Visibility.Visible;
-            
         }
 
         private void ScrewdriverInfo_Click(object sender, RoutedEventArgs e) // goes to screwdriver Information
         {
             this.Inventory.Visibility = Visibility.Hidden;
             this.ToolsInfo.Visibility = Visibility.Visible;
-            UpdateToolInfoPage("Screwdriver");    
+            UpdateToolInfoPage(FindTool("Screwdriver"));
         }
         private void HammerInfo_Click(object sender, RoutedEventArgs e)
         {
             this.Inventory.Visibility = Visibility.Hidden;
             this.ToolsInfo.Visibility = Visibility.Visible;
-            UpdateToolInfoPage("Hammer");
+            UpdateToolInfoPage(FindTool("Hammer"));
         }
         private void PliersInfo_Click(object sender, RoutedEventArgs e)
         {
             this.Inventory.Visibility = Visibility.Hidden;
             this.ToolsInfo.Visibility = Visibility.Visible;
-            UpdateToolInfoPage("Pliers");
+            UpdateToolInfoPage(FindTool("Pliers"));
         }
         private void WrenchInfo_Click(object sender, RoutedEventArgs e)
         {
             this.Inventory.Visibility = Visibility.Hidden;
             this.ToolsInfo.Visibility = Visibility.Visible;
-            UpdateToolInfoPage("Wrench");
+            UpdateToolInfoPage(FindTool("Wrench"));
         }
 
 

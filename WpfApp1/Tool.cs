@@ -14,6 +14,13 @@ namespace WpfApp1
         public float Price { get; set; }
         public int Quantity { get; set; }
        
+        public Tool(string newName, string newDescrip, float newPrice, int newAmount)
+        {
+            Name = newName;
+            Description =newDescrip;
+            Price = newPrice;
+            Quantity = newAmount;
+        }
         public Tool()
         {
             Name = "";
@@ -21,5 +28,6 @@ namespace WpfApp1
             Price = 0;
             Quantity = 0;
         }
+        List<Tool> toolList;
     }
 }
