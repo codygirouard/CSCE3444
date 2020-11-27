@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" MinWidth="800" MinHeight="450">
-    <Grid Background="#FFD5F4D6" Visibility="Visible">
+    <Grid Background="#FFD5F4D6">
         <Grid x:Name="Welcome">
             <TextBlock HorizontalAlignment="Center" Height="200" Margin="10 10" TextWrapping="Wrap" VerticalAlignment="Top" Width="775" FontSize="72" TextAlignment="Center" FontWeight="Bold" Text="Welcome to Eagles' Warehouse Inventory" MinWidth="1">
                 <TextBlock.Foreground>
@@ -18,7 +18,7 @@
             </TextBlock>
             <Button x:Name="CkInven" Content="Check Inventory" HorizontalAlignment="Center" Height="100" Margin="0,275,0,30" VerticalAlignment="Center" Width="300" FontSize="30" FontWeight="Bold" BorderThickness="5" BorderBrush="#FF5BD636" Background="#FFFFF9B6" Click="CkInven_Click">
                 <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
+                    <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="30"/>
                     </Style>
                 </Button.Resources>
@@ -47,48 +47,48 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Button x:Name="Button1" Margin="5" Grid.Column="0" Grid.Row="0" Background="#FFFFF9B6" Click="ScrewdriverInfo_Click" >
+                <Button x:Name="Button1" Margin="5" Grid.Column="0" Grid.Row="0" Background="#FFFFF9B6" Click="Item_Click" >
                     <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
+                        <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="30"/>
                         </Style>
                     </Button.Resources>
                     <StackPanel Orientation="Vertical">
-                        <Image Source="Pictures/screwdriver.png" Height="80" Width="200"/>
-                        <TextBlock Text="Screw Driver" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
+                        <Image x:Name="img1" Source="Pictures/Screwdriver.png" Height="80" Width="200"/>
+                        <TextBlock x:Name="txt1" Text="Screw Driver" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="Button2" Margin="5" Grid.Column="1" Grid.Row="0" Background="#FFFFF9B6" Click="HammerInfo_Click" >
+                <Button x:Name="Button2" Margin="5" Grid.Column="1" Grid.Row="0" Background="#FFFFF9B6" Click="Item_Click">
                     <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
+                        <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="30"/>
                         </Style>
                     </Button.Resources>
                     <StackPanel Orientation="Vertical">
-                        <Image Source="Pictures/hammer.png" Height="80" Width="200"/>
-                        <TextBlock x:Name="___TextBlock___Hammer_" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"><Run Text="Hammer"/><LineBreak/><Run/></TextBlock>
+                        <Image x:Name="img2" Source="Pictures/Screwdriver.png" Height="80" Width="200"/>
+                        <TextBlock x:Name="txt2" Text="Screw Driver" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="Button3" Margin="5" Grid.Column="0" Grid.Row="1" Background="#FFFFF9B6" Click="PliersInfo_Click" >
+                <Button x:Name="Button3" Margin="5" Grid.Column="0" Grid.Row="1" Background="#FFFFF9B6" Click="Item_Click">
                     <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
+                        <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="30"/>
                         </Style>
                     </Button.Resources>
                     <StackPanel Orientation="Vertical">
-                        <Image Source="Pictures/pliers.png" Height="80" Width="200"/>
-                        <TextBlock Text="Pliers" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
+                        <Image x:Name="img3" Source="Pictures/Screwdriver.png" Height="80" Width="200"/>
+                        <TextBlock x:Name="txt3" Text="Screw Driver" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="Button4" Margin="5" Grid.Column="1" Grid.Row="1" Background="#FFFFF9B6" Click="WrenchInfo_Click" >
+                <Button x:Name="Button4" Margin="5" Grid.Column="1" Grid.Row="1" Background="#FFFFF9B6" Click="Item_Click">
                     <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
+                        <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="30"/>
                         </Style>
                     </Button.Resources>
                     <StackPanel Orientation="Vertical">
-                        <Image Source="Pictures/wrench.png" Height="80" Width="200"/>
-                        <TextBlock Text="Wrench" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
+                        <Image x:Name="img4" Source="Pictures/Screwdriver.png" Height="80" Width="200"/>
+                        <TextBlock x:Name="txt4" Text="Screw Driver" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
                     </StackPanel>
                 </Button>
             </Grid>
@@ -99,101 +99,21 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="Back" Margin="40 10 20 10" Grid.Column="0" Background="#FFFFF9B6" Content="← " FontSize="40" FontWeight="Bold" VerticalAlignment="Center">
+                <Button x:Name="Back" Margin="40 10 20 10" Grid.Column="0" Background="#FFFFF9B6" Content="←	" FontSize="40" FontWeight="Bold" VerticalAlignment="Center" Click="Back_Click">
                     <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
+                        <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-                <TextBox x:Name="PageNum" Margin="80 10" Grid.Column="1" Background="#FFFFF9B6" Text="2" FontSize="36" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="PageNum" Margin="80 10" Grid.Column="1" Background="#FFFFF9B6" Text="1" FontSize="36" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
                 <Button x:Name="Forward" Margin="40 10 20 10" Grid.Column="2" Background="#FFFFF9B6" Content="→" FontSize="40" FontWeight="Bold" VerticalAlignment="Center" Click="Forward_Click">
                     <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
+                        <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-
-            </Grid>
-        </Grid>
-        <Grid x:Name="Inventory2" Visibility="Hidden">
-            <Grid.RowDefinitions>
-                <RowDefinition Height=".5*"/>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Button x:Name="LoginButton1" Grid.Row="0" Content="Login" HorizontalAlignment="Right" Margin="5 5 20 5" Width="100" Background="#FF77DA92" FontWeight="Bold" FontSize="20" Click="Login_Click"/>
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <Button x:Name="Button5" Margin="5" Grid.Column="0" Grid.Row="0" Background="#FFFFF9B6" >
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="30"/>
-                        </Style>
-                    </Button.Resources>
-                    <StackPanel Orientation="Vertical">
-                        <Image x:Name="hammer" Source="Pictures/hammer.png" Height="80" Width="200"/>
-                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"><Run Text="Hammer"/><LineBreak/><Run/></TextBlock>
-                    </StackPanel>
-                </Button>
-                <Button x:Name="Button6" Margin="5" Grid.Column="1" Grid.Row="0" Background="#FFFFF9B6" >
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="30"/>
-                        </Style>
-                    </Button.Resources>
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="Pictures/screwdriver.png" Height="80" Width="200"/>
-                        <TextBlock Text="Screw Driver" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
-                    </StackPanel>
-                </Button>
-                <Button x:Name="Button7" Margin="5" Grid.Column="0" Grid.Row="1" Background="#FFFFF9B6" >
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="30"/>
-                        </Style>
-                    </Button.Resources>
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="Pictures/screwdriver.png" Height="80" Width="200"/>
-                        <TextBlock Text="Screw Driver" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
-                    </StackPanel>
-                </Button>
-                <Button x:Name="Button8" Margin="5" Grid.Column="1" Grid.Row="1" Background="#FFFFF9B6" >
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="30"/>
-                        </Style>
-                    </Button.Resources>
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="Pictures/screwdriver.png" Height="80" Width="200"/>
-                        <TextBlock Text="Screw Driver" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
-                    </StackPanel>
-                </Button>
-            </Grid>
-            <Grid Margin="10 5 10 10" Grid.Row="21">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Button x:Name="Back1" Margin="40 10 20 10" Grid.Column="0" Background="#FFFFF9B6" Content="← " FontSize="40" FontWeight="Bold" VerticalAlignment="Center" Click="Back1_Click">
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="5"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
-                <TextBox x:Name="PageNum1" Margin="80 10" Grid.Column="1" Background="#FFFFF9B6" Text="3" FontSize="36" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
 
             </Grid>
         </Grid>
@@ -213,12 +133,13 @@
                     </LinearGradientBrush>
                 </TextBlock.Foreground>
             </TextBlock>
-            <TextBox x:Name="Username" Grid.Row="1" Text="Username" Width="600" Height="50" FontWeight="Bold" FontSize="36" VerticalAlignment="Center" TextAlignment="Left" Foreground="#FF666666" GotKeyboardFocus="Username_GotKeyboardFocus" LostKeyboardFocus="Username_LostKeyboardFocus" KeyDown="Username_KeyDown"/>
+            <TextBox x:Name="Username" Grid.Row="1" Text="Username" Width="600" Height="50" FontWeight="Bold" FontSize="36" VerticalAlignment="Center" TextAlignment="Left" Foreground="#FF666666" GotKeyboardFocus="Username_GotKeyboardFocus" LostKeyboardFocus="Username_LostKeyboardFocus" KeyDown="Username_KeyDown">
+            </TextBox>
             <PasswordBox x:Name="Password" Grid.Row="2" Width="600" Height="50" FontWeight="Bold" FontSize="36" VerticalAlignment="Center" Foreground="#FF666666" PasswordChanged="Password_PasswordChanged" LostFocus="Password_LostFocus" KeyDown="Password_KeyDown"/>
             <Button x:Name="PasswordCover" Grid.Row="2" Content="Password" Width="600" Height="50" FontWeight="Bold" FontSize="36" VerticalAlignment="Center" HorizontalContentAlignment="Left" Foreground="#FF666666" Click="PasswordCover_Click" Background="White"/>
             <Button x:Name="CompleteLogin" Grid.Row="3" Content="Login" HorizontalAlignment="Center" Height="100"  VerticalAlignment="Center" Width="300" FontSize="30" FontWeight="Bold" BorderThickness="5" BorderBrush="#FF5BD636" Background="#FFFFF9B6" Click="CompleteLogin_Click">
                 <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
+                    <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="30"/>
                     </Style>
                 </Button.Resources>
@@ -230,26 +151,50 @@
                 </Button.Foreground>
             </Button>
         </Grid>
-        <Grid x:Name="ToolsInfo" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Visibility="Hidden">
-            <Grid HorizontalAlignment="Left" Height="446" Margin="0,-24,-695,-322" VerticalAlignment="Top" Width="795" Background="#FF363232">
-                <Image Source="Pictures/screwdriver.png" Margin="73,128,523,222"/>
+        <Grid x:Name="Item" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Vertical" Grid.Column="0">
+                    <TextBlock x:Name="txt" Text="Screw Driver" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold"/>
+                    <Image x:Name="img" Source="Pictures/Screwdriver.png" Height="80" Width="200"/>
+                </StackPanel>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="Price" Grid.Row="0" Text="$19.99" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" FontStyle="Oblique" FontWeight="Medium"/>
+                    <TextBlock x:Name="Stock" Grid.Row="1" Text="In Stock: 7" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" FontStyle="Oblique" FontWeight="Medium"/>
+                </Grid>
             </Grid>
-            <TextBox x:Name="Name" HorizontalAlignment="Left" Height="34" Margin="411,104,-526,-38" TextWrapping="Wrap" Text="Screwdriver" VerticalAlignment="Top" Width="215" Background="{x:Null}" TextChanged="TextBox_TextChanged_1" FontSize="20" Foreground="White" TextDecorations="{x:Null}" BorderBrush="{x:Null}"/>
-            <TextBox x:Name="Price" HorizontalAlignment="Left" Height="34" Margin="411,138,-526,-72" TextWrapping="Wrap" Text="$19.99" VerticalAlignment="Top" Width="215" Background="{x:Null}" TextChanged="TextBox_TextChanged_1" FontSize="20" Foreground="White" TextDecorations="{x:Null}" BorderBrush="{x:Null}"/>
-            <TextBox x:Name="StockText" HorizontalAlignment="Left" Height="34" Margin="411,171,-372,-105" TextWrapping="Wrap" Text="Stock:" VerticalAlignment="Top" Width="61" Background="{x:Null}" TextChanged="TextBox_TextChanged_1" FontSize="20" Foreground="White" TextDecorations="{x:Null}" BorderBrush="{x:Null}"/>
-            <TextBox x:Name="StockNum" HorizontalAlignment="Left" Height="34" Margin="472,171,-423,-105" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="51" Background="{x:Null}" TextChanged="TextBox_TextChanged_1" FontSize="20" Foreground="White" TextDecorations="{x:Null}" BorderBrush="{x:Null}"/>
-            <TextBlock x:Name="DescriptionBox" HorizontalAlignment="Left" Margin="89,205,-569,-283" TextWrapping="Wrap" Text="A screwdriver is a tool, manual or powered, used for screwing and unscrewing screws. A typical simple screwdriver has a handle and a shaft, ending with a tip the user puts into the screw head before turning the handle" VerticalAlignment="Top" Height="178" Width="580" Foreground="White" FontSize="24"/>
-            <Button x:Name="Purchase" HorizontalAlignment="Left" Height="52" Margin="278,129,-275,-81" VerticalAlignment="Top" Width="97" Background="#FFBDDEA7" Click="PurchaseSD_Click" BorderBrush="White" Padding="1">
-                <TextBlock TextWrapping="Wrap" Text="Purchase" Foreground="Black" FontSize="19" FontWeight="Bold"/>
-            </Button>
-            <Button x:Name="LeaveScrewDriverInfoPage" Margin="10,0,-43,42" Grid.Column="0" Background="#FFBDDEA7" Content="← " FontSize="40" FontWeight="Bold" VerticalAlignment="Center" Height="58" Click="LeaveScrewdriver_Click">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-        </Grid>
+            <TextBlock x:Name="Desc" Grid.Row="1" Text="A screwdriver is a tool, manual or powered, used for screwing and unscrewing screws. A typical simple screwdriver has a handle and a shaft, ending in a tip the user puts into the screw head before turning the handle." Margin="10" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="26" VerticalAlignment="Center" TextAlignment="Center"/>
+            <Grid Grid.Row="2" x:Name="CustView" Visibility="Visible">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="BackButton" Grid.Column="0" Content="Back" Margin="30 10 20 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FFE1E664" FontWeight="Bold" FontSize="25" Click="BackButton_Click"/>
+                <Button Grid.Column="1" x:Name="PurchaseButton" Content="Purchase" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Margin="10 10 20 10" Background="#FF77DA92" FontWeight="Bold" FontSize="25" Width="234" Click="PurchaseButton_Click" />
+            </Grid>
 
+            <Grid x:Name="OwnView" Grid.Row="2" Visibility="Hidden">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="BackButton2" Grid.Column="0" Content="Back" Margin="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FFE1E664" FontWeight="Bold" FontSize="25" Click="BackButton_Click"/>
+                <TextBox x:Name="StockText" Grid.Column="1" Text="7" Margin="10" TextAlignment="Center" VerticalContentAlignment="Center" Background="#FF77DA92" FontWeight="Bold" FontSize="25"/>
+                <Button Grid.Column="2" x:Name="StockButton" Grid.Row="2" Content="Update Stock" HorizontalAlignment="Center" Margin="10" Background="#FF77DA92" FontWeight="Bold" FontSize="25" Click="StockButton_Click"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
