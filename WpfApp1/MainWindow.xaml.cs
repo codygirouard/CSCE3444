@@ -36,7 +36,7 @@ namespace WpfApp1
             admin = false;
         }
 
-        private void CkInven_Click(object sender, RoutedEventArgs e)
+        private void CkInven_Click(object sender, RoutedEventArgs e) // send UI from main page to inventory list
         {
             this.Welcome.Visibility = Visibility.Hidden;
             this.Inventory.Visibility = Visibility.Visible;
@@ -50,7 +50,7 @@ namespace WpfApp1
             this.img4.Source = new BitmapImage(new Uri("Pictures/" + tools[3] + ".png", UriKind.Relative));
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
+        private void Login_Click(object sender, RoutedEventArgs e) // send UI from inventory list to owner login
         {
             if (this.LoginButton.Content.Equals("Login"))
             {
@@ -66,7 +66,7 @@ namespace WpfApp1
             
         }
 
-        private void Username_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        private void Username_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e) // empties the username box when the user clicks the username box
         {
             if (this.Username.Text == "Username")
             {
@@ -74,7 +74,7 @@ namespace WpfApp1
             }
         }
 
-        private void Username_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        private void Username_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e) // if nothing was entered in the username box when left, replace text with "username"
         {
             if (this.Username.Text == "")
             {
@@ -82,7 +82,7 @@ namespace WpfApp1
             }
         }
 
-        private void Password_PasswordChanged(object sender, RoutedEventArgs e)
+        private void Password_PasswordChanged(object sender, RoutedEventArgs e) // if the password is empty make the "Password" overlay visible, if something is entered in the password make it invisible
         {
             if (this.Password.Password.Length == 0)
             {
@@ -94,13 +94,13 @@ namespace WpfApp1
             }
         }
 
-        private void PasswordCover_Click(object sender, RoutedEventArgs e)
+        private void PasswordCover_Click(object sender, RoutedEventArgs e)  // When the password box is clicked, set the overlay to invis and set user's focus to the password box
         {
             this.PasswordCover.Visibility = Visibility.Hidden;
             this.Password.Focus();
         }
 
-        private void Password_LostFocus(object sender, RoutedEventArgs e)
+        private void Password_LostFocus(object sender, RoutedEventArgs e) // if the password is empty, make the overlay visible
         {
             if (this.Password.Password.Length == 0)
             {
@@ -112,18 +112,18 @@ namespace WpfApp1
             }
         }
 
-        private void Password_KeyDown(object sender, KeyEventArgs e)
+        private void Password_KeyDown(object sender, KeyEventArgs e) // if the user presses enter in the password box, act as if they pressed the login button
         {
             if (e.Key == Key.Enter)
             {
                 CompleteLogin_Click(null, null);
             }
         }
-        private void CompleteLogin_Click(object sender, RoutedEventArgs e)
+        private void CompleteLogin_Click(object sender, RoutedEventArgs e) // login button is pressed
         {
-            if (this.Username.Text == "owner" && this.Password.Password == "eagle")
+            if (this.Username.Text == "owner" && this.Password.Password == "eagle") //if password and user are correct 
             {
-                admin = true;
+                admin = true; // system now shows item pages that allow stock to be updated
                 this.Login.Visibility = Visibility.Hidden;
                 this.Inventory.Visibility = Visibility.Visible;
                 this.LoginButton.Content = "Logout";
@@ -131,7 +131,7 @@ namespace WpfApp1
                 this.Password.Password = "";
                 this.Username.Text = "Username";
             }
-            else
+            else // pass and user were incorrect
             {
                 MessageBox.Show("Try again", "Incorrect Login");
                 this.Password.Password = "";
@@ -141,7 +141,7 @@ namespace WpfApp1
             }
         }
 
-        private void Username_KeyDown(object sender, KeyEventArgs e)
+        private void Username_KeyDown(object sender, KeyEventArgs e) // if tab is pressed while typing in the username, bring focus to the password box
         {
             if (e.Key == Key.Tab)
             {
@@ -149,9 +149,9 @@ namespace WpfApp1
             }
         }
 
-        private void Forward_Click(object sender, RoutedEventArgs e)
+        private void Forward_Click(object sender, RoutedEventArgs e) // goes to the next page of tools
         {
-            if (this.PageNum.Text == "5")
+            if (this.PageNum.Text == "5") // already on last page error
             {
                 MessageBox.Show("This is the last page.", "No Pages Left");
                 return;
@@ -169,9 +169,9 @@ namespace WpfApp1
             this.img4.Source = new BitmapImage(new Uri("Pictures/" + tools[3 + (currPage - 1) * 4] + ".png", UriKind.Relative));
         }
 
-        private void Back_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e) // goes to previous page of tools
         {
-            if (this.PageNum.Text == "1")
+            if (this.PageNum.Text == "1") // already on first page error
             {
                 MessageBox.Show("This is the first page.", "Cannot Go Back");
                 return;
@@ -189,11 +189,11 @@ namespace WpfApp1
             this.img4.Source = new BitmapImage(new Uri("Pictures/" + tools[3 + (currPage - 1) * 4] + ".png", UriKind.Relative));
         }
 
-        private void Item_Click(object sender, RoutedEventArgs e)
+        private void Item_Click(object sender, RoutedEventArgs e) // sends user to item page when clicking an item in the inventory list
         {
             Button b = e.Source as Button;
             int offset = 0;
-            switch (b.Name)
+            switch (b.Name) // figure out if which button was pressed
             {
                 case "Button1":
                     offset = 0;
@@ -211,13 +211,17 @@ namespace WpfApp1
                     MessageBox.Show("Error Button Not Found");
                     break;
             }
-            item = offset + 4 * (Int16.Parse(this.PageNum.Text) - 1);
+            item = offset + 4 * (Int16.Parse(this.PageNum.Text) - 1); // identify the item in the inventory based on page number and offset
+			
+			//update item page based on button click
             this.Price.Text = "$" + String.Format("{0:0.00}", prices[item]);
             this.Stock.Text = "In Stock: " + stocks[item].ToString();
             this.txt.Text = tools[item];
             this.Desc.Text = descs[item];
             this.StockText.Text = stocks[item].ToString();
             this.img.Source = new BitmapImage(new Uri("Pictures/" + tools[item] + ".png", UriKind.Relative));
+			
+			//item page for admin or customer
             if (admin)
             {
                 this.OwnView.Visibility = Visibility.Visible;
@@ -232,13 +236,13 @@ namespace WpfApp1
             this.Item.Visibility = Visibility.Visible;
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e) // sends user back to inventory list
         {
             this.Inventory.Visibility = Visibility.Visible;
             this.Item.Visibility = Visibility.Hidden;
         }
 
-        private void PurchaseButton_Click(object sender, RoutedEventArgs e)
+        private void PurchaseButton_Click(object sender, RoutedEventArgs e) // reserves stock for the customer of that item
         {
             if (stocks[item] < 1)
             {
@@ -249,7 +253,7 @@ namespace WpfApp1
             this.Stock.Text = "In Stock: " + stocks[item].ToString();
         }
 
-        private void StockButton_Click(object sender, RoutedEventArgs e)
+        private void StockButton_Click(object sender, RoutedEventArgs e) // updates stock of an item based on number in the text
         {
             int stock = 0;
             bool isNum = int.TryParse(this.StockText.Text, out stock);
